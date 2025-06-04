@@ -1,0 +1,24 @@
+*.o
+*.obj
+*.so
+*.exe
+*.out
+*.a
+*.lib
+*.dll
+*.dSYM/
+*.vcxproj.*
+*.code-workspace
+*.log
+build/
+bin/
+.vscode/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+compile_commands.json
+*.swp
+*.swo
+
+# made by Aryan Kumar
