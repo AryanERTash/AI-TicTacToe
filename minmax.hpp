@@ -19,7 +19,10 @@ pair<WinnerStatus, int> minmax(BoardState, bool = true);
 */
 int alpha_beta_puring_minmax(BoardState, bool = true); 
 
+// int probablity_minimax();
 
+//probablity based search
+// p(win at a node)
 
 
 #endif
