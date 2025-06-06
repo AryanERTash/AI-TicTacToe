@@ -14,13 +14,18 @@ int main(int argc, char const* argv[])
 
 	BoardState board;
 
+	int tie = 0, comp_win = 0, user_win = 0;
+
 
 	while (1) {
 		// ask for continuation
+		cout << "\nTies: " << tie << ", Wins: "<< user_win << ", Loss: " << comp_win;
+		
 		cout << "\nPress 'c' to continue or 'q' to quit: ";
 		char ch;
 		cin >> ch;
 		if (ch == 'q' || ch == 'Q' || (ch != 'c' && ch != 'C')) break;
+
 
 		cout << "\nDo you want to play first(y/n)?: "; // who will play first??
 		cin >> ch;
@@ -97,13 +102,17 @@ int main(int argc, char const* argv[])
 
 			if (wstat == TIE) {
 				cout << "The game ended in a tie.\n";
+				tie++;
 			}
 			else if (wstat == PLAYERO_WIN) {
+				user_win++;
 				cout << "Congratulations you won.\n";
 
 			}
 			else if (wstat == PLAYERX_WIN)
 			{
+
+				comp_win++;
 				cout << "Computer won, better luck next time.\n";
 
 			}
