@@ -19,8 +19,8 @@ int main(int argc, char const* argv[])
 
 	while (1) {
 		// ask for continuation
-		cout << "\nTies: " << tie << ", Wins: "<< user_win << ", Loss: " << comp_win;
-		
+		cout << "\nTies: " << tie << ", Wins: " << user_win << ", Loss: " << comp_win;
+
 		cout << "\nPress 'c' to continue or 'q' to quit: ";
 		char ch;
 		cin >> ch;
@@ -60,6 +60,7 @@ int main(int argc, char const* argv[])
 			int usr_mv;
 
 		mv_input:
+			usr_mv = 0;
 			// take input until no valid answer is recieved 
 			cout << "\nEnter your move from";
 			vector<int> empty_cells = board.get_all_emptycells();
@@ -69,13 +70,20 @@ int main(int argc, char const* argv[])
 			}
 			cout << ": ";
 
-			cin >> usr_mv;
+			if (!(cin >> usr_mv)) {
+				cin.clear(); // clear error flag
 
-			if (usr_mv < 1 || usr_mv>9) {
-				cout << "The move is invalid. Try another\n";
-				// invalid move
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "Invalid input. Please enter a number.\n";
+				
 				goto mv_input;
 			}
+
+			if (usr_mv < 1 || usr_mv > 9) {
+				cout << "The move is invalid. Try another\n";
+				goto mv_input;
+			}
+
 
 			if (board.is_occupied(usr_mv)) {
 				cout << "The position " << usr_mv << " is already occupied. Try another position\n";
