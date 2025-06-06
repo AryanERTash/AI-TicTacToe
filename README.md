@@ -21,13 +21,13 @@ The **minimax algorithm** is a recursive decision-making algorithm used in two-p
 
 Insert gif or link to demo
 
-![Tic tac toe](images/tictac1.png)
+![Tic tac toe](demo/tictac1.png)
 
 
-![Tic tac toe](images/tictac2.png)
+![Tic tac toe](demo/tictac2.png)
 
 
-![Tic tac toe](images/tictac3.png)
+![Tic tac toe](demo/tictac3.png)
 
 # Installation
 ## 📦 Clone the Repository
