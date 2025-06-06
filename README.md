@@ -19,8 +19,6 @@ The **minimax algorithm** is a recursive decision-making algorithm used in two-p
 
 ## Demo
 
-Insert gif or link to demo
-
 ![Tic tac toe](demo/tictac1.png)
 
 
