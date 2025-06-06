@@ -1,6 +1,7 @@
 *.o
 *.obj
 *.so
+*.d
 *.exe
 *.out
 *.a
