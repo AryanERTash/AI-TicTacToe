@@ -5,24 +5,40 @@
 
 using namespace std;
 
+pair<WinnerStatus, int> minmax(BoardState board, bool maxplayer ) {
 
+	WinnerStatus win = board.get_winner();	// status 
+	// cout << win << " nigger\n";
+	if (win != INCOMPLETE) return { win, -1 };	// return if leaf node
 
-pair<int, int> minmax(const BoardState& board, Player player) {
+	int optimal_win = maxplayer ? INT16_MIN : INT16_MAX;	// optimal
+	int move = -1;
 
-	WinnerStatus win = board.get_winner();
-	if (win != INCOMPLETE)
-		return pair<int, int>((int)win, move);
+	vector<int> vec = board.get_all_emptycells();
 
-	int n = board.get_emptycell(); // n!=-1 as game is incomplete
-	if (player == PLAYERX) {
+	for (int cell : vec) {
+		// iterate through all possible bit flips
+		
+		BoardState next_board = board;
+		next_board.set_atcell(cell, maxplayer ? PLAYERX : PLAYERO);
 
-		BoardState b = board; // copy constructor(first time only)
-
+		pair<WinnerStatus, int> next_pair = minmax(next_board, !maxplayer);
+		int win_stat = next_pair.first;
+		
+		// cout << (WinnerStatus)win_stat << " " << depth << endl;
 		
 		
-		pair<int, int> mins = minmax(board, PLAYERO, )
 
-
+		if (maxplayer && win_stat > optimal_win) {
+			optimal_win = win_stat;
+			move = cell;
+		}
+		else if (!maxplayer && win_stat < optimal_win) {
+			optimal_win = win_stat;
+			move = cell;
+		}
 	}
+	
 
+	return { (WinnerStatus)optimal_win, move };
 }
