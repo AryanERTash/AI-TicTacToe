@@ -17,7 +17,7 @@ bin/
 cmake-build-*/
 CMakeFiles/
 CMakeCache.txt
-Makefile
+
 compile_commands.json
 *.swp
 *.swo
