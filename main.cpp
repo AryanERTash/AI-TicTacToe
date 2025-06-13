@@ -19,9 +19,10 @@ int main(int argc, char const* argv[])
 
 	while (1) {
 		// ask for continuation
-		cout << "\nTies: " << tie << ", Wins: " << user_win << ", Loss: " << comp_win;
-
-		cout << "\nPress 'c' to continue or 'q' to quit: ";
+		
+		cout << "Ties: " << tie << ", Wins: " << user_win << ", Loss: " << comp_win << endl;
+		
+		cout << "Press 'c' to continue or 'q' to quit: ";
 		char ch;
 		cin >> ch;
 		if (ch == 'q' || ch == 'Q' || (ch != 'c' && ch != 'C')) break;
@@ -99,15 +100,16 @@ int main(int argc, char const* argv[])
 
 			usleep(100000); // simulate thinking
 			pair<WinnerStatus, int> comp_move = minmax(board);	// computer moves
-
+			
 			int move = comp_move.second;
 			board.set_atcell(move, PLAYERX);
-
+			
 			WinnerStatus wstat = board.get_winner(); // status of board
-
+			
 			board.print_grid();
+			cout << "Computer played at "<< move << "." << endl;
 
-
+			
 			if (wstat == TIE) {
 				cout << "The game ended in a tie.\n";
 				tie++;
@@ -115,25 +117,26 @@ int main(int argc, char const* argv[])
 			else if (wstat == PLAYERO_WIN) {
 				user_win++;
 				cout << "Congratulations you won.\n";
-
+				
 			}
 			else if (wstat == PLAYERX_WIN)
 			{
-
+				
 				comp_win++;
 				cout << "Computer won, better luck next time.\n";
-
+				
 			}
-
+			
 			if (wstat != INCOMPLETE) {
-
-				cout << "\n\n";
+				
+				cout << endl;
 				// new game
 				break;
 			}
 
 
 		}
+
 
 	}
 
